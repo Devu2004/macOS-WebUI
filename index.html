@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Back!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="loader">
+        <div class="logo">⌘</div>
+        <p>Booting os...</p>
+    </div>
+    <div id="dekstopUi">
+      <header>
+        <div class="head">
+          <div class="left Section">
+            <ul>
+              <li>
+                <a href="#"><img src="Assets/logo.png" alt="" id="logo" /></a>
+              </li>
+              <li><a href="#" id="navFinder">Finder</a></li>
+              <li><a href="#" id="openEdit">Edit</a></li>
+              <li><a href="#" id="term">Terminal</a></li>
+              <li><a href="#" id="notes">Notes</a></li>
+            </ul>
+          </div>
+          <div class="right Section">
+            <ul>
+              <li>
+                <a href="#"
+                  ><img src="/Assets/battery.png" alt="battery" id="battery"
+                /></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><img src="Assets/wifi.png" alt="wifi" id="wifi"
+                /></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><img src="/Assets/control.png" alt="controls" id="controls"
+                /></a>
+              </li>
+              <li><a href="#" id="time"></a></li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="Assets/user.png"
+                    alt="user"
+                    id="user"
+                    style="width: 0.9rem"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div id="contextItems">
+        <ul id="contextMenu" class="context-menu">
+          <li id="refresh">Refresh</li>
+          <hr />
+          <li id="createFolder">New Folder</li>
+          <hr />
+          <li id="changeWallpaper">Change Wallpaper</li>
+          <hr />
+          <li id="openTerminal">Open Terminal</li>
+          <hr />
+          <li id="viewSettings">View Settings</li>
+        </ul>
+      </div>
+
+      <div id="dock">
+        <ul>
+          <li>
+            <a href="#"
+              ><img src="Assets/Dock/finder.png" alt="" id="outsidefileManager"
+            /></a>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Dock/safari.png" alt="" id="outsideSafari"/></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="Assets/Dock/Terminal.png" alt="" id="dockTerminal"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="Assets/Dock/Launcher.png" alt="" id="launcher"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="Assets/Dock/calender.png" alt="" class="calender"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="Assets/Dock/Notes.png" alt="" id="outsideNotes"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="Assets/Dock/Calculator.png" alt="" id="outsidecalcbtn"
+            /></a>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Dock/VS.png" alt="" /></a>
+          </li>
+          <li>
+            <a href="https://open.spotify.com/" target="_parent"><img src="Assets/Dock/Spotify.png" alt="" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Launcher/Photos.png" alt="" id="outsidegallery"/></a>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Dock/Clock.png" alt="" id="outsideclock"/></a>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Dock/Trash.png" alt="" id="outsideBin"/></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- outside Items -->
+    <div id="appleMenu" class="dropdownMenu">
+      <ul>
+        <li id="abtbtn">About OS</li>
+        <hr />
+        <li id="sstemSeting">System Settings</li>
+        <hr />
+        <li id="Restart">Restart</li>
+        <hr />
+        <li id="shtdownbtn">Shut Down</li>
+        <hr />
+        <li id="locked">Lock Screen</li>
+      </ul>
+    </div>
+    <div id="aboutModal" class="modal">
+      <div class="modal-content">
+        <ul>
+          <span id="closeAbout" class="close-btn">&times;</span>
+          <h2>About OS</h2>
+          <li><strong>Version:</strong> OS 1.0.0</li>
+          <hr />
+          <li><strong>Developer:</strong> Devansh Gupta</li>
+          <hr />
+          <li><strong>RAM:</strong> 8 GB</li>
+          <hr />
+          <li><strong>Uptime:</strong> 3 minutes</li>
+          <hr />
+          <li><strong>Design Inspired By:</strong> macOS</li>
+        </ul>
+      </div>
+    </div>
+    <div id="shutdownScreen">
+      <div class="shutdownContent">
+        <p>Press this button to open Mac again..</p>
+        <button id="powerOnBtn">Power On</button>
+      </div>
+    </div>
+    <div id="lockScreen">
+      <div class="lockOverlay">
+        <h1>🔒Screen Locked</h1>
+        <button id="unlockBtn">Unlock</button>
+      </div>
+    </div>
+    <div id="systemSettingScreeen">
+      <div class="systemSettingContent">
+        <ul id="systemSettingsMenu">
+          <li><strong>System Settings</strong></li>
+          <li>🖥️ Display</li>
+          <hr />
+          <li>🌐 Network</li>
+          <hr />
+          <li>
+            <label for="volumeSlider">🔊</label>
+            <input
+              type="range"
+              id="volumeSlider"
+              min="0"
+              max="100"
+              value="50"
+            />
+          </li>
+          <hr />
+          <li>🔒 Privacy & Security</li>
+          <hr />
+          <li>👤 User Accounts</li>
+          <hr />
+          <li>🕒 Date & Time</li>
+          <hr />
+          <li>🌙 Appearance</li>
+        </ul>
+      </div>
+    </div>
+    <div id="systemControls">
+      <div class="insideControls">
+        <div class="controlR1">
+          <button class="wifiToggle systembtn">
+            <img src="Assets/wifi.png" alt="wifiarea" />
+          </button>
+          <button class="blueTOggle systembtn">
+            <img src="Assets/bluetooth.png" alt="" />
+          </button>
+        </div>
+        <div class="controlR2">
+          <button class="systembtn">
+            <img src="Assets/moon.png" alt="focus" />
+          </button>
+        </div>
+        <div class="controlR3 range">
+          <label for="control">Volume</label>
+          <input type="range" min="0" class="rangess" max="100" value="20" />
+        </div>
+        <div class="controlR4 range">
+          <label for="control">Brightness</label>
+          <input type="range" min="0" class="rangess" max="100" value="50" />
+        </div>
+      </div>
+    </div>
+    <div id="userCard" class="user-card hidden">
+      <img
+        id="prfileImg"
+        src="https://images.unsplash.com/photo-1710162734220-d543f0dff259?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Profile"
+        class="profile-pic"
+      />
+      <div class="usernameActions">
+        <div class="user-details">
+          <div class="username">Hey Devansh!</div>
+          <div class="status online">● Online</div>
+        </div>
+        <div class="user-actions">
+          <button class="action-btn settingBtn">Settings</button>
+          <button class="action-btn lgout">Logout</button>
+        </div>
+      </div>
+    </div>
+    <div id="logScreen" class="logoutscreen">
+      <div class="logoutcard">
+        <img src="Assets/user.png" alt="User" class="logout-user-pic" />
+        <h2 class="logout-username">Devansh Gupta</h2>
+        <p class="logout-message">You're logged out</p>
+        <button id="loginAgainBtn" class="login-again-btn">Log In</button>
+      </div>
+    </div>
+    <div id="wifibtnContainer">
+      <button id="wifiBtn">
+        <img src="Assets/wifi.png" alt="WiFi" />
+        <span id="wifiStatus">WiFi</span>
+      </button>
+    </div>
+    <div id="batteryContainer">
+      <button class="batterybtn">70% Charged</button>
+    </div>
+    <!-- terminal -->
+    <div id="terminalapp">
+      <div class="tcontent">
+        <div class="header">
+          <div class="btncontrols">
+            <li class="red close"></li>
+            <li class="ylw min"></li>
+            <li class="green max"></li>
+          </div>
+          <div class="text">
+            <h4>Terminal</h4>
+          </div>
+        </div>
+        <div class="terminal-body">
+          <pre
+            id="terminalOutput"
+          ><strong>$</strong> Welcome to MacOS Terminal</pre>
+          <div class="terminal-input">
+            <span class="dollar-sign"><strong>$</strong></span>
+            <input
+              type="text"
+              id="terminalCommand"
+              placeholder="Type a command..."
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- folder inside dock -->
+    <div id="dockerLauncher">
+      <div class="dockerLauncherContent">
+        <ul>
+          <li>
+            <a href="#"><img src="Assets/Launcher/Camera.png" alt="" /></a>
+            <p>Camera</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Launcher/File.png" alt="" /></a>
+            <p>Folders</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Launcher/music.png" alt="" /></a>
+            <p>Music</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Launcher/Message.png" alt="" /></a>
+            <p>Message</p>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="Assets/Launcher/Battery.png" alt="" id="batry"
+            /></a>
+            <p>Battery</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Launcher/Photos.png" alt="" id="insidegallery"/></a>
+            <p>Photos</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Launcher/Discord.png" alt="" /></a>
+            <p>Discord</p>
+          </li>
+          <li>
+            <a href="https://www.netflix.com/in/" target="_parent"><img src="Assets/Launcher/Netflix.png" alt="" /></a>
+            <p>Netflix</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Launcher/Sublime.png" alt="" /></a>
+            <p>Sublime</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Launcher/Weather.png" alt="" /></a>
+            <p>Weather</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Launcher/Telegram.png" alt="" /></a>
+            <p>Telegram</p>
+          </li>
+          <li>
+            <a href="https://www.notion.com/" target="_top"
+              ><img src="Assets/Launcher/Notion.png" alt=""
+            /></a>
+            <p>Notion</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Launcher/Gpt.png" alt="" /></a>
+            <p>ChatGpt</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Launcher/Siri.png" alt="" /></a>
+            <p>Siri</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Launcher/Ios14Light.png" alt="" /></a>
+            <p>IOS-14 Theme</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Launcher/Ios15Menu.png" alt="" /></a>
+            <p>IOS Menu</p>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="Assets/Dock/finder.png" alt="" id="insidefileManager"
+            /></a>
+            <p>Finder</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Dock/safari.png" alt="" id="insideSafari"/></a>
+            <p>Safari</p>
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                src="Assets/Dock/Terminal.png"
+                alt=""
+                id="dockInsideTerminal"
+            /></a>
+            <p>Terminal</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Dock/seting.png" alt="" /></a>
+            <p>Settings</p>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="Assets/Dock/calender.png" alt="" id="insideCalender"
+            /></a>
+            <p>Calender</p>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="Assets/Dock/Notes.png" alt="" id="insideNotesapp"
+            /></a>
+            <p>Notes</p>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="Assets/Dock/Calculator.png" alt="" id="calcInsidebtn"
+            /></a>
+            <p>Calculator</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Dock/VS.png" alt="" /></a>
+            <p>VS Code</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Dock/Spotify.png" alt="" /></a>
+            <p>Spotify</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Dock/Mail.png" alt="" /></a>
+            <p>Mail</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Dock/Clock.png" alt="" id="insideClock"/></a>
+            <p>Clock</p>
+          </li>
+          <li>
+            <a href="#"><img src="Assets/Dock/Trash.png" alt="" id="insideBin"/></a>
+            <p>Bin</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--btry btn inside dock  -->
+    <div id="InsideDockBattery">
+      <button class="insidebtryhtml">battery</button>
+    </div>
+    <!-- calender content -->
+    <div id="calenderBox">
+      <div class="calenderitems">
+        <div class="header">
+          <div class="btncontrols">
+            <li id="calenderClose" class="red close btn"></li>
+            <li id="calenderMin" class="ylw min btn"></li>
+            <li id="calenderMax" class="green max btn"></li>
+          </div>
+          <div class="text">
+            <h4>Calender</h4>
+          </div>
+        </div>
+        <div class="parentofcalendertext">
+          <p class="calenderInnerHTML">Show</p>
+        </div>
+      </div>
+    </div>
+    <!-- Notes app -->
+    <div id="notesApp">
+      <div class="notesItem">
+        <div class="header">
+          <div class="btncontrols">
+            <li class="red" id="closeNotes"></li>
+            <li class="ylw" id="minNotes"></li>
+            <li class="green" id="maxNotes"></li>
+          </div>
+          <div class="text">
+            <h4>Notes</h4>
+          </div>
+        </div>
+        <div class="notesBody">
+          <textarea
+            id="notesTextarea"
+            placeholder="Start typing your note..."
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <!-- calculator -->
+    <div id="calculatorApp">
+      <div class="header">
+        <div class="btncontrols">
+          <li class="red" id="closeCalc"></li>
+          <li class="ylw" id="minCalc"></li>
+          <li class="green" id="maxCalc"></li>
+        </div>
+        <div class="text">
+          <h4>Calculator</h4>
+        </div>
+      </div>
+
+      <div class="calculator">
+        <input type="text" id="calcDisplay" readonly />
+        <div class="calc-buttons">
+          <button class="btn">7</button>
+          <button class="btn">8</button>
+          <button class="btn">9</button>
+          <button class="btn operator">/</button>
+
+          <button class="btn">4</button>
+          <button class="btn">5</button>
+          <button class="btn">6</button>
+          <button class="btn operator">*</button>
+
+          <button class="btn">1</button>
+          <button class="btn">2</button>
+          <button class="btn">3</button>
+          <button class="btn operator">-</button>
+
+          <button class="btn">0</button>
+          <button class="btn">.</button>
+          <button class="btn" id="clear">C</button>
+          <button class="btn operator">+</button>
+
+          <button class="btn equal" id="equals">=</button>
+        </div>
+      </div>
+    </div>
+    <!-- File manager app -->
+    <div id="fileManagerapp">
+      <div class="filemanagercontent">
+        <div class="header">
+          <div class="btncontrols">
+            <li class="red close" id="closeFinder"></li>
+            <li class="ylw min" id="minFinder"></li>
+            <li class="green max" id="maxFinder"></li>
+          </div>
+          <div class="text">
+            <h4>Finder</h4>
+          </div>
+        </div>
+        <div class="finderBody">
+          <div class="sideBar">
+            <ul>
+              <li id="dekstopfinder">Desktop</li>
+              <hr />
+              <li id="docsfinder">Documents</li>
+              <hr />
+              <li id="Downfinder">Downloads</li>
+              <hr />
+              <li id="picfinder">Pictures</li>
+              <hr />
+              <li id="musfinder">Music</li>
+            </ul>
+          </div>
+          <div class="mainAreaOfFile">
+            <div class="currentPath">
+              <p>Home > Documents</p>
+            </div>
+            <div class="fileGrid" id="dekstopSection">
+              <div class="fileItems files">
+                <img src="/Assets/Launcher/File.png" alt="" />
+                <p>Project</p>
+              </div>
+            </div>
+            <div class="fileGrid" id="docuementSection" style="display: none">
+              <div class="fileItems">
+                <img src="Assets/Launcher/Macfile.png" alt="" />
+                <p>Mac files</p>
+              </div>
+            </div>
+            <div class="fileGrid" id="downloadSection" style="display: none">
+              <div class="fileItems">
+                <img src="Assets/Launcher/resume.png" a />
+                <p>Resume.pdf</p>
+              </div>
+            </div>
+            <div class="fileGrid" id="pictureSection" style="display: none">
+              <div class="fileItems">
+                <img src="Assets/Launcher/picture.png" alt="" />
+                <p>Pictures</p>
+              </div>
+            </div>
+            <div class="fileGrid" id="musicSection" style="display: none">
+              <div class="fileItems">
+                <img src="Assets/Launcher/musicfile.png" alt="" />
+                <p>Music files</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Edit Menu Dropdown -->
+    <div id="editMenu">
+      <div class="edit-menu">
+        <ul>
+          <li id="undoBtn">Undo</li>
+          <li id="cutBtn">Cut</li>
+          <li id="copyBtn">Copy</li>
+          <li id="pasteBtn">Paste</li>
+          <hr />
+          <li id="selectAllBtn">Select All</li>
+          <li>
+            <input type="text" id="fileSearch" placeholder="Find..." />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- gallery content -->
+     <div id="galleryApp">
+  <div class="gallery-content">
+    <div class="header">
+      <div class="btncontrols">
+        <li class="red close" id="closeGallery"></li>
+        <li class="ylw min" id="minGallery"></li>
+        <li class="green max" id="maxGallery"></li>
+      </div>
+      <div class="text">
+        <h4>Gallery</h4>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/97/0d/ce/970dce347fcc632b7c5a4c56c9781a22.jpg" alt="Image 1" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/3a/a5/be/3aa5bea9d74fdb733b5672c8a8cf46a9.jpg" alt="Image 2" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/af/c6/c1/afc6c1bb6b1366112146f3c5d280b591.jpg" alt="Image 3" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/ed/3b/0b/ed3b0b3bf7cae1df396e8da1d3902bac.jpg" alt="Image 4" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/60/7e/85/607e859c7c2b14d01a0c73ce2f15e210.jpg" alt="Image 5" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/ed/e9/80/ede98051911b94cf0aeb0d098c908261.jpg" alt="Image 5" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/6d/2a/29/6d2a29886bf6882fa6721dc097b6e7b1.jpg" alt="Image 5" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/1c/aa/c4/1caac4081998c687ee5e32d7a519d5bb.jpg" alt="Image 5" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/08/f6/19/08f619b299bb8fd7de49a128a246b9e4.jpg" alt="Image 5" />
+      </div>
+    </div>
+  </div>
+</div>
+<!-- clock app-->
+ <div id="clockApp">
+  <div class="clock-content">
+    <div class="header">
+      <div class="btncontrols">
+        <li class="red close" id="closeClock"></li>
+        <li class="ylw min" id="minClock"></li>
+        <li class="green max" id="maxClock"></li>
+      </div>
+      <div class="text">
+        <h4>Clock</h4>
+      </div>
+    </div>
+    <div class="clock-body">
+      <h1 id="digitalClock">00:00:00</h1>
+    </div>
+  </div>
+</div>
+<!-- bin app -->
+ <div id="binApp">
+  <div class="bin-content">
+    <div class="header">
+      <div class="btncontrols">
+        <li class="red close" id="closeBin"></li>
+        <li class="ylw min" id="minBin"></li>
+        <li class="green max" id="maxBin"></li>
+      </div>
+      <div class="text">
+        <h4>Bin</h4>
+      </div>
+    </div>
+    <div class="bin-body">
+      <p class="empty-text">Empty</p>
+    </div>
+  </div>
+</div>
+<!-- safari browser -->
+ <div id="safariApp">
+  <div class="safari-content">
+    <div class="header">
+      <div class="btncontrols">
+        <li class="red close" id="closeSafari"></li>
+        <li class="ylw min" id="minSafari"></li>
+        <li class="green max" id="maxSafari"></li>
+      </div>
+      <div class="text">
+        <h4>Safari</h4>
+      </div>
+    </div>
+    <div class="address-bar">
+      <input
+        type="text"
+        id="safariAddress"
+        placeholder="Search or enter website name"
+      />
+      <button id="safariGo">Go</button>
+    </div>
+    <div class="webpage-view" id="safariView">
+      <p>Welcome to Safari Browser!</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <script src="script.js"></script>
+  </body>
+</html>

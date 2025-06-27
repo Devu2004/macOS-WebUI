@@ -1,0 +1,1388 @@
+@mixin transition {
+    transition: .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+@mixin hr {
+    border: none;
+    height: 1px;
+    width: 100%;
+    border-radius: 1px;
+    background-color: #777;
+}
+@mixin dockerList{
+    li{
+            list-style: none;
+            img{
+                width: 3rem;
+                @include transition;
+                &:hover{
+                    transform: scale(1.3);
+                }
+            }
+        }
+}
+@mixin appheader{
+    .header {
+            display: flex;
+            width: 100%;
+            height: 1.5rem;
+            margin-top: 0;
+            background-color: rgb(82, 80, 80);
+            .btncontrols{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-left: .4rem;
+                z-index: 1200;
+                li{
+                    list-style: none;
+                    width: .8rem;
+                    margin: 0 .3rem;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    height: .8rem;
+                }
+                .red{
+                    background-color: rgb(255, 0, 0);
+                }
+                .ylw{
+                    background-color: rgb(234, 234, 9);
+                }
+                .green{
+                    background-color: #27c93f;
+                }
+            }
+            .text{
+                width: 100%;
+                height: 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+            }
+        }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-image: url(https://images.unsplash.com/photo-1710162734220-d543f0dff259?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: 1s background-image ease-in-out;
+    width: 100%;
+    font-family: "Inter";
+    height: 100%;
+}
+
+#dekstopUi {
+    position: relative;
+}
+
+#loader {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-family: 'Inter';
+    gap: .02rem;
+    font-size: 2rem;
+    transition: opacity .6s ease;
+}
+
+header {
+    overflow: hidden;
+    position: static;
+
+    .head {
+        display: flex;
+        justify-content: space-between;
+        padding: .4rem;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(55, 54, 54);
+
+        .right {
+
+            li {
+                a {
+                    font-weight: 500;
+
+                    img {
+                        font-weight: 500;
+                        width: 1rem;
+                        cursor: pointer;
+                        margin-top: .1rem;
+                    }
+                }
+            }
+        }
+
+        div ul {
+            display: flex;
+            gap: 1rem;
+            margin-left: 2rem;
+            margin-right: 2rem;
+
+            li {
+                list-style: none;
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    font-weight: 400;
+                    font-size: .9rem;
+
+                    img {
+                        width: .9rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#appleMenu {
+    color: #fff;
+    font-weight: 400;
+    padding: .8rem;
+    width: fit-content;
+    background-color: rgb(55, 54, 54);
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    margin: 1rem;
+    top: 1.6rem;
+    left: .1rem;
+    position: absolute;
+    display: none;
+    z-index: 1000;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        hr {
+            @include hr;
+        }
+
+        li {
+            list-style: none;
+            letter-spacing: 0.5px;
+            padding: 4px 0;
+            @include transition;
+            cursor: pointer;
+
+            &:hover {
+                background: rgb(68, 68, 217);
+                border-radius: 4px;
+                padding-left: 6px;
+            }
+        }
+    }
+}
+
+#aboutModal {
+    position: relative;
+    display: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    div {
+        position: absolute;
+        width: fit-content;
+        top: .2rem;
+        left: 11.5rem;
+        right: 0;
+        bottom: 0;
+        color: #fff;
+        z-index: 1000;
+
+        ul {
+            border-radius: 1rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            background-color: rgb(55, 54, 54);
+
+            li {
+                list-style: none;
+                cursor: pointer;
+                font-weight: 300;
+                letter-spacing: 0.5px;
+                padding: 4px 0;
+                @include transition;
+
+                p {
+                    font-size: .8rem;
+                    color: #ccc;
+                }
+
+                strong {
+                    font-weight: 500;
+                }
+
+                &:hover {
+                    background: rgb(68, 68, 217);
+                    border-radius: 4px;
+                    padding-left: 6px;
+                }
+            }
+
+            hr {
+                @include hr;
+            }
+
+            h2 {
+                font-weight: 600;
+                font-size: 1.2rem;
+                color: #fff;
+                margin-bottom: .1rem;
+                padding: 4px 0;
+                cursor: pointer;
+            }
+
+            span {
+                font-weight: 400;
+                color: #ccc;
+                font-size: 1rem;
+                padding: 4px 0;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+#shutdownScreen {
+    display: none;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    z-index: 9999;
+    background-color: black;
+
+    .shutdownContent {
+        color: #fff;
+        position: absolute;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        p {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: .5rem;
+        }
+
+        button {
+            padding: .5rem 1rem;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(68, 68, 217);
+            color: #fff;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: .5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: .3s ease-in-out;
+
+            &:hover {
+                background-color: rgb(50, 50, 170);
+            }
+
+            &:active {
+                transform: scale(0.9);
+            }
+        }
+    }
+}
+
+#lockScreen {
+    display: none;
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    color: #fff;
+    background-color: black;
+
+    .lockOverlay {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        #unlockBtn {
+            padding: .5rem 1rem;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(68, 68, 217);
+            color: #fff;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: .5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: .3s ease-in-out;
+
+            &:hover {
+                background-color: rgb(50, 50, 170);
+            }
+
+            &:active {
+                transform: scale(0.9);
+            }
+        }
+    }
+}
+
+#systemSettingScreeen {
+    display: none;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    .systemSettingContent {
+        position: relative;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            gap: 1rem;
+            position: absolute;
+            background-color: rgb(55, 54, 54);
+            padding: 1rem;
+            top: 3.4rem;
+            left: 11.5rem;
+            border-radius: 1rem;
+
+            li {
+                list-style: none;
+                font-weight: 500;
+                color: #fff;
+                cursor: pointer;
+                padding: 4px 0;
+                border-radius: 5px;
+                transition: .3s ease-in-out;
+
+                &:hover {
+                    background-color: rgb(68, 68, 217);
+                }
+
+                input {
+                    margin-right: .5rem;
+                    margin-top: .2rem;
+                    cursor: pointer;
+                    accent-color: #777;
+                }
+            }
+
+            hr {
+                @include hr;
+            }
+        }
+    }
+}
+
+#systemControls {
+    display: none;
+    position: relative;
+    top: .3rem;
+    left: 65%;
+    width: fit-content;
+    background-color: rgb(55, 54, 54);
+    color: #fff;
+    height: 23rem;
+    border-radius: 1rem;
+
+    .insideControls {
+        width: fit-content;
+        padding: 2rem;
+        border-radius: 1rem;
+    }
+
+    .controlR1 {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+
+        button {
+            width: 10rem;
+            height: 4rem;
+            background-color: #766e6e;
+            border: none;
+            border-radius: .6rem;
+            cursor: pointer;
+            @include transition;
+            ;
+
+            &:active {
+                transform: scale(.98);
+            }
+
+            img {
+                width: 1.7rem;
+            }
+        }
+    }
+
+    .controlR2 {
+        width: 100%;
+        height: 100%;
+        margin-top: 1.5rem;
+
+        button {
+            width: 100%;
+            height: 4rem;
+            background-color: #766e6e;
+            border: none;
+            border-radius: .6rem;
+            cursor: pointer;
+            @include transition;
+            ;
+
+            &:active {
+                transform: scale(.98);
+            }
+
+            img {
+                width: 2rem;
+            }
+        }
+    }
+
+    .range {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+
+        label {
+            margin-bottom: .5rem;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+    }
+
+    .rangess {
+        width: 100%;
+        height: 15px;
+        background: transparent;
+        border-radius: 8px;
+        outline: none;
+    }
+
+}
+
+#userCard {
+    display: none;
+    flex-direction: row;
+    width: fit-content;
+    position: fixed;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    top: 50%;
+    left: 50%;
+    padding: 1.5rem;
+    color: #fff;
+    border-radius: 1rem;
+    transform: translate(-50%, -50%);
+    background-color: rgb(55, 54, 54);
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        border: 1px solid rgb(10, 132, 255);
+        cursor: pointer;
+    }
+
+    .user-details {
+        display: flex;
+        flex-direction: column;
+        gap: .1rem;
+        margin-left: .5rem;
+        margin-top: .5rem;
+
+        .username {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .status {
+            font-size: .7rem;
+            color: #ccc;
+            font-weight: 300;
+
+        }
+    }
+
+    .user-actions {
+        display: flex;
+        flex-direction: row;
+        margin-top: 1rem;
+        gap: 1rem;
+        margin-left: .5rem;
+
+        button {
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: .8rem;
+            font-weight: 600;
+            border: none;
+            background-color: rgb(10, 132, 255);
+            cursor: pointer;
+            color: #fff;
+            @include transition;
+
+            &:active {
+                transform: scale(0.96);
+            }
+        }
+    }
+}
+
+#logScreen {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    gap: 1rem;
+
+    .logoutcard {
+        color: #fff;
+        background-color: #b19aac;
+        padding: 2rem;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: .5rem;
+        // position: absolute;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        gap: .5rem;
+        justify-content: center;
+        height: fit-content;
+
+        img {
+            width: 2rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            text-transform: capitalize;
+        }
+
+        button {
+            padding: 5px 10px;
+            width: 8rem;
+            border: none;
+            border-radius: .3rem;
+            font-size: 1rem;
+            font-weight: 600;
+            background-color: rgb(14, 102, 191);
+            color: #fff;
+            margin-top: .4rem;
+            @include transition;
+            cursor: pointer;
+
+            &:active {
+                transform: scale(0.96);
+            }
+        }
+    }
+}
+
+#wifibtnContainer {
+    display: none;
+    position: fixed;
+    #wifiBtn {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        left: 70rem;
+        top: .2rem;
+        width: 14rem;
+        max-width: 8rem;
+        gap: .1rem;
+        border-radius: 1rem;
+        cursor: pointer;
+        background-color: rgb(55, 54, 54);
+        border: none;
+        padding: .5rem;
+
+        img {
+            width: 1.5rem;
+            height: 1.5rem;
+            cursor: pointer;
+            margin-right: .5rem;
+        }
+
+        span {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+    }
+}
+
+#batteryContainer {
+    display: none;
+    position: fixed;
+    button {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        left: 68rem;
+        font-size: .9rem;
+        top: .2rem;
+        width: 7rem;
+        font-weight: 600;
+        max-width: 8rem;
+        border-radius: .5rem;
+        cursor: pointer;
+        background-color: rgb(55, 54, 54);
+        border: none;
+        padding: .5rem;
+    }
+}
+
+#contextItems {
+    display: none;
+    width: fit-content;
+    position: absolute;
+    transition: opacity .2s ease;
+    z-index: 12000;
+    ul {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        background: rgba(46, 42, 42, 0.174);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: #fff;
+        padding: 1rem;
+        gap: .5rem;
+        border-radius: .5rem;
+
+        li {
+            list-style: none;
+            font-weight: 500;
+            width: 100%;
+            cursor: pointer;
+            padding: 4px 0;
+            @include transition;
+
+            &:hover {
+                background-color: rgba(68, 68, 217, 0.5);
+                border-radius: 4px;
+                padding-left: 6px;
+            }
+        }
+
+        hr {
+            @include hr;
+        }
+    }
+}
+
+#terminalapp {
+    display: none;
+    position: fixed;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(40, 39, 39);
+    color: #fff;
+    border-radius: .3rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    overflow: auto;
+    z-index: 12000;
+
+    .tcontent {
+        position: relative;
+        width: 40rem;
+        height: 25rem;
+        @include transition;
+        @include appheader;
+    }
+    .terminal-body{
+        margin-top: .5rem;
+        margin-left: .3rem;
+        pre{
+            @include transition();
+            font-size: .9rem;
+            font-weight: 500;
+            strong{
+                color: #27c93f;
+            }
+        }
+        .terminal-input{
+            display: flex;
+            flex-direction: row;
+            gap: .4rem;
+            color: #fff;
+            input{
+                border: none;
+                font-size: .9rem;
+                background: none;
+                outline: none;
+                color: #fff;
+                
+            }
+            strong{
+                color: #27c93f;
+            }
+        }
+    }
+}
+#dock{
+    position: fixed;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding: .5rem;
+    border-radius: .5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    height: 3.5rem;
+    ul{
+        margin-bottom: .2rem;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin-top: .3rem;
+        gap: .2rem;
+        @include dockerList;
+    }
+}
+#dockerLauncher{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+
+    .dockerLauncherContent{
+        position: absolute;
+        padding: 1rem;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        ul{
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            flex-wrap: wrap;
+            row-gap: 4rem;
+            @include dockerList;
+            li{
+                img{
+                    width: 4.8rem;
+                }
+                p{
+                    font-size: 1rem;
+                    font-weight: 500;
+                    text-align: center;
+                    // background-color: red;
+                    width: 4.6rem;
+                    color: #fff;
+                    margin-top: -.3rem;
+                }
+            }
+        }
+    }
+}
+#InsideDockBattery{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+    button{
+        padding: 15px 30px;
+        border: none;
+        text-transform: capitalize;
+        background-color: rgba(46, 42, 42, 0.7);
+        color: #fff;
+        width: fit-content;
+        font-size: 1.5rem;
+        border-radius: .7rem;
+    }
+}
+#calenderBox{
+    display: none;
+    position: fixed;
+    width: 20rem;
+    height: 9rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    background-color: rgb(40, 39, 39);
+    color: #fff;
+    border-radius: .3rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: auto;
+    z-index: 12000;
+    @include transition;
+    .calenderitems{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        @include appheader;
+        .parentofcalendertext{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            font-weight: 500;
+            transform: translate(-50%,-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p{
+                @include transition();
+            }
+        }
+    }
+}
+#notesApp{
+    display: none;
+    width: 40rem;
+    position: fixed;
+    height: 25rem;
+    background-color: black;
+    color: #fff;
+    border-radius: .3rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    overflow: auto;
+    z-index: 120000;
+    @include transition();
+    .notesItem{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        @include appheader();
+        .notesBody{
+            overflow: hidden;
+            textarea{
+                padding: .5rem;
+                font-family: "Inter";
+                font-weight: 400;
+                width: 40rem;
+                font-size: .9rem;
+                height: 25rem;
+                background-color: black;
+                color: #fff;
+                outline: none;
+                border: none;
+                overflow: hidden;
+                @include transition();
+            }
+        }
+    }
+}
+#calculatorApp {
+  width: 20rem;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  overflow: hidden;
+  color: white;
+  font-family: 'Arial';
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  position: fixed;
+    margin-top: 1rem;
+    margin-left: 1rem;
+  display: none;
+    @include transition();
+  @include appheader();
+
+    .btncontrols {
+      display: flex;
+      margin-left: .5rem;
+
+      li {
+        width: 0.8rem;
+        height: 0.8rem;
+        margin: 0 0.3rem;
+        border-radius: 50%;
+        list-style: none;
+        cursor: pointer;
+      }
+
+      .red { background-color: #ff5f56; }
+      .ylw { background-color: #ffbd2e; }
+      .green { background-color: #27c93f; }
+    }
+
+    .textterminal {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      font-size: 0.8rem;
+      color: white;
+    }
+  }
+
+  .calculator {
+    padding: 1rem;
+
+    input {
+      width: 100%;
+      height: 3rem;
+      font-size: 1.4rem;
+      text-align: right;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: none;
+      outline: none;
+      border-radius: 6px;
+      background-color: #1e1e1e;
+      color: white;
+    }
+
+    .calc-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+
+      .btn {
+        padding: 1rem;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 8px;
+        background-color: #4d4d4d;
+        color: white;
+        cursor: pointer;
+        transition: background 0.2s;
+
+        &:hover {
+          background-color: #606060;
+        }
+
+        &.equal {
+          grid-column: span 4;
+          background-color: #2196f3;
+
+          &:hover {
+            background-color: #1976d2;
+          }
+        }
+      }
+    }
+  }
+#fileManagerapp {
+  position: fixed;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  background-color: black;
+  width: 40rem;
+  color: #fff;
+  overflow: hidden; 
+  border-radius: 7px;
+  height: 25rem;
+  display: none;
+  @include transition();
+
+  .filemanagercontent {
+    width: 100%;
+    height: 100%;
+    @include appheader();
+    position: relative;
+
+    .finderBody {
+      display: flex;
+      width: 100%; 
+      height: calc(100% - 1.5rem);
+
+      .sideBar {
+        width: 30%; 
+        background-color: #4d4d4d;
+        border-right: 1px solid #ccc;
+        padding: 0.5rem;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          li {
+  padding: 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  list-style: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+        }
+      }
+
+      .mainAreaOfFile {
+        width: 70%; 
+        background-color: #2d2d2d;
+        display: flex;
+        flex-direction: column;
+        #docuementSection , #downloadSection ,#pictureSection, #musicSection,#dekstopSection {
+            position: relative;
+            .fileItems{
+                position: static;
+                // text-align: center;
+            }
+        } 
+        
+        
+        .currentPath {
+          height: 2.5rem;
+          padding-left: 0.5rem;
+          display: flex;
+          align-items: center;
+          background-color: #4d4d4d;
+          font-size: 0.9rem;
+          border-bottom: 1px solid #fff;
+          p{
+            font-size: 1rem;
+            font-weight: 500;
+          }
+        }
+
+        .fileGrid {
+            display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          padding: 1rem;
+
+          
+
+          .fileItems {
+            display: flex;
+            flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+            text-align: center;
+            color: #fff;
+
+            img {
+              width: 4rem;
+              height: 4rem;
+              cursor:grab;
+            }
+
+            p {
+              margin-top: 0.5rem;
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+#editMenu{
+    position: fixed;
+    display: none;
+        top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+
+    div{  
+        color: #fff;
+        width: fit-content;
+        ul{
+            border-radius: 1rem;
+            background-color: rgb(55, 54, 54);
+            padding: 1rem;
+            gap: .5rem;
+            display: flex;
+
+            flex-direction: column;
+            li{
+                list-style: none;
+                font-weight: 500;
+                cursor: pointer;
+                font-size: 1rem;
+                &:hover{
+                    background-color: #2196f3;
+                    padding: 3px 6px;
+                    @include transition();
+                    border-radius: .4rem;
+                }
+                input{
+                    outline: none;
+                    padding: 5px 10px;
+                    font-weight: 400;
+                    font-size: .9rem;
+                    border: none;
+                    color: #fff;
+                    border-radius: .2rem;
+                    background-color: rgb(43, 41, 41);
+                    
+                }
+            }
+        }
+    }
+}
+#galleryApp{
+    display: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    position: fixed;
+    .gallery-content{
+        top: 1rem;
+        left: 1rem;
+        width: 40rem;
+        position: relative;
+        color: #fff;
+        height: 25rem;
+        overflow: hidden;
+        border-radius: 7px;
+        background-color: #2d2d2d;
+        @include appheader();
+        @include transition();
+        .gallery-grid{
+            display: flex;
+            flex-wrap: wrap;
+            padding: .9rem;
+            gap: 1.5rem;
+            div{
+                img{
+                    width: 6rem;
+                    height: 8rem;
+                    object-fit: cover;
+                    border-radius: 3px;
+
+                }
+            }
+        }
+    }
+}
+#clockApp {
+  display: none;
+  position: fixed;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 25rem;
+  height: 18rem;
+  background-color: #1f1f1f;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  @include transition();
+
+  .clock-content {
+    width: 100%;
+    height: 100%;
+    @include appheader();
+
+    .clock-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      font-family: 'Courier New', Courier, monospace;
+      h1 {
+          @include transition();
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+    }
+  }
+}
+#binApp {
+  display: none;
+  position: fixed;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 30rem;
+  height: 20rem;
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  @include transition();
+
+  .bin-content {
+    width: 100%;
+    height: 100%;
+    @include appheader();
+
+    .bin-body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+
+      .empty-text {
+        font-size: 1.5rem;
+        color: #999;
+        font-weight: 500;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+#safariApp {
+  display: none;
+  position: fixed;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+      top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  width: 40rem;
+  height: 25rem;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  color: #fff;
+  overflow: hidden;
+  @include transition();
+
+  .safari-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    @include appheader(); // 👈 Your custom header mixin
+
+    .address-bar {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      background-color: #2c2c2c;
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+
+      input {
+        flex: 1;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        background-color: #3a3a3a;
+        color: #fff;
+        font-size: 1rem;
+      }
+
+      button {
+        padding: 0.5rem 1.2rem;
+        background-color: #2196f3;
+        color: #fff;
+        font-weight: 600;
+        border: none;
+        font-size: 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        @include transition();
+
+        &:hover {
+          background-color: #1976d2;
+        }
+      }
+    }
+
+    .webpage-view {
+      flex: 1;
+
+      padding: 2rem;
+      background-color: #121212;
+      overflow-y: auto;
+      background-image: url("https://i.pinimg.com/736x/b5/28/07/b5280781ac2a53da10ab5e457c0afb1f.jpg");
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      p {
+        font-size: 1.1rem;
+        color: black;
+        font-weight: 800;
+        text-align: center;
+      }
+    }
+  }
+}
+
+
